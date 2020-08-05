@@ -1,0 +1,26 @@
+#读取配置中心配置
+#必须配置在bootstrap.yml文件中 因为bootstrap.yml会被优先读取 如果配置在application.properties中那么会导致去访问http://localhost:8888获取配置 导致读取不到报错
+#原因是 启动项目会进行以下步骤 1寻找bootstrap.yml 没找到 由于导入了spring-cloud-starter-config包 那么就会去找默认的配置服务中心http://localhost:8888 没找到 报错 导致连application.properties中的配置都没读取
+#解决方案 1 写到bootstrap.yml 2 配置中心服务端端口改为8888
+#服务配置文件格式为 服务名称-dev/prod  spring.cloud.config.name对应的就是服务名称 spring.cloud.config.profile就是dev还是prod
+#两个拼起来就是说明读取服务器的哪个文件
+
+spring:
+  application:
+    name: eureka-client-consumer
+  cloud:
+    config:
+      fail-fast: true
+      name: ${spring.application.name}
+      profile: ${spring.profiles.active}
+      discovery:
+        enabled: true
+        #配置中心服务端服务的名称
+        service-id: spring-cloud-config
+  profiles:
+    active: dev
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://Admin:1122334@localhost:5000/eureka
