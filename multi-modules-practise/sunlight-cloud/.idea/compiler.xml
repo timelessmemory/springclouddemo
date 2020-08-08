@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="sunlight-common-core" />
+        <module name="sunlight-common-log" />
+        <module name="sunlight-common-redis" />
+        <module name="sunlight-common-swagger" />
+        <module name="sunlight-config" />
+        <module name="sunlight-eureka" />
+        <module name="sunlight-gateway" />
+        <module name="sunlight-monitor" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="sunlight-api" target="1.5" />
+      <module name="sunlight-cloud" target="1.5" />
+      <module name="sunlight-common" target="1.5" />
+      <module name="sunlight-common-core" target="1.5" />
+      <module name="sunlight-common-log" target="1.5" />
+      <module name="sunlight-common-redis" target="1.5" />
+      <module name="sunlight-common-swagger" target="1.5" />
+      <module name="sunlight-config" target="1.5" />
+      <module name="sunlight-eureka" target="1.5" />
+      <module name="sunlight-gateway" target="1.5" />
+      <module name="sunlight-microservice" target="1.5" />
+      <module name="sunlight-monitor" target="1.5" />
+      <module name="sunlight-service" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="sunlight-api" options="" />
+      <module name="sunlight-cloud" options="" />
+      <module name="sunlight-common" options="" />
+      <module name="sunlight-common-core" options="" />
+      <module name="sunlight-common-log" options="" />
+      <module name="sunlight-common-redis" options="" />
+      <module name="sunlight-common-swagger" options="" />
+      <module name="sunlight-config" options="" />
+      <module name="sunlight-eureka" options="" />
+      <module name="sunlight-gateway" options="" />
+      <module name="sunlight-microservice" options="-parameters" />
+      <module name="sunlight-monitor" options="" />
+      <module name="sunlight-service" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/sunlight-api/sunlight-api.iml" filepath="$PROJECT_DIR$/sunlight-api/sunlight-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sunlight-cloud.iml" filepath="$PROJECT_DIR$/sunlight-cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sunlight-common/sunlight-common.iml" filepath="$PROJECT_DIR$/sunlight-common/sunlight-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sunlight-common/sunlight-common-core/sunlight-common-core.iml" filepath="$PROJECT_DIR$/sunlight-common/sunlight-common-core/sunlight-common-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sunlight-common/sunlight-common-log/sunlight-common-log.iml" filepath="$PROJECT_DIR$/sunlight-common/sunlight-common-log/sunlight-common-log.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sunlight-common/sunlight-common-redis/sunlight-common-redis.iml" filepath="$PROJECT_DIR$/sunlight-common/sunlight-common-redis/sunlight-common-redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sunlight-common/sunlight-common-swagger/sunlight-common-swagger.iml" filepath="$PROJECT_DIR$/sunlight-common/sunlight-common-swagger/sunlight-common-swagger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sunlight-config/sunlight-config.iml" filepath="$PROJECT_DIR$/sunlight-config/sunlight-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sunlight-eureka/sunlight-eureka.iml" filepath="$PROJECT_DIR$/sunlight-eureka/sunlight-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sunlight-gateway/sunlight-gateway.iml" filepath="$PROJECT_DIR$/sunlight-gateway/sunlight-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sunlight-microservice/sunlight-microservice.iml" filepath="$PROJECT_DIR$/sunlight-microservice/sunlight-microservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sunlight-monitor/sunlight-monitor.iml" filepath="$PROJECT_DIR$/sunlight-monitor/sunlight-monitor.iml" />
+    </modules>
+  </component>
+</project>

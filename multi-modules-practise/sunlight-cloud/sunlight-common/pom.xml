@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.timeless</groupId>
+        <artifactId>sunlight-cloud</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <packaging>pom</packaging>
+
+    <groupId>com.timeless</groupId>
+    <artifactId>sunlight-common</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <description>维护公共模块pom 主要是一些核心工具封装 调用方使用maven引入各模块进行使用</description>
+    <!--调用分为 1、使用maven引入包调用 这种跟导包差不多 适用于工具类 2、提供feign远程调用 这种单独部署服务器 高可用 适用于服务-->
+
+    <modules>
+        <module>sunlight-common-core</module>
+        <module>sunlight-common-redis</module>
+        <module>sunlight-common-log</module>
+        <module>sunlight-common-swagger</module>
+    </modules>
+</project>

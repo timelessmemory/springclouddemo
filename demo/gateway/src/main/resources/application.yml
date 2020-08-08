@@ -1,0 +1,65 @@
+server:
+  port: 888
+eureka:
+  client:
+    service-url:
+      defaultZone: http://Admin:1122334@localhost:5000/eureka
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
+spring:
+  application:
+    name: cloud-gateway
+  redis:
+    host: localhost
+    password:
+    port: 6379
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          #匹配小写的服务名称
+          lowerCaseServiceId: true
+          #是否与服务注册于发现组件进行结合，通过 serviceId 转发到具体的服务实例。默认为 false，设为 true 便开启通过服务中心的自动根据 serviceId 创建路由的功能
+          enabled: true
+      routes:
+        - id: eureka-client-provider-service
+          uri: lb://eureka-client-provider
+          predicates:
+            - Path=/api/v1/**
+          filters:
+            #自定义过滤器工厂ExecuteGatewayFilterFactory的配置 true复制给isOpen
+            - Execute=true
+            #统一截取前缀2层
+            - StripPrefix=2
+            #统一加上前缀
+            #- PrefixPath=/app
+            #基于Redis的限流
+            - name: RequestRateLimiter
+              args:
+                #令牌桶每秒填充平均速率  可以把值改为1测试 每个ip一秒请求太多会被限制
+                redis-rate-limiter.replenishRate: 10
+                #令牌桶总容量
+                redis-rate-limiter.burstCapacity: 20
+                #用于限流的键的解析器的Bean对象的名字 使用 SpEL(Spring表达式语言,简称SpEL) 按名称引用bean : ipKeyResolver
+                key-resolver: "#{@ipKeyResolver}"
+            #Hystrix熔断 HystrixCommand的名字 可以看看原生hystrix 就是把一些业务放到单独线程中执行 执行异常可以指定fallback方法
+            - name: Hystrix
+              args:
+                  name: fallbackcmd
+                  fallbackUri: forward:/fallback
+            #请求重试 配置了 Hystrix 之后，超时就直接 fallback 了，所以根本轮不到 retry
+            - name: Retry
+              args:
+                #重试次数，默认值是3次
+                retries: 3
+                #HTTP的状态返回码，取值请参考：org.springframework.http.HttpStatus
+                statuses: BAD_GATEWAY
+                #指定哪些方法的请求需要进行重试逻辑，默认值是 GET 方法，取值参考：org.springframework.http.HttpMethod
+                #methods: GET
+                #一些列的状态码配置，取值参考：org.springframework.http.HttpStatus.Series。符合的某段状态码才会进行重试逻辑，默认值是 SERVER_ERROR，值是 5，也就是 5XX(5 开头的状态码)，共有5个值
+                #series:
+
+#不配置任何路由 注册到注册中心后访问服务的默认规则是 根据服务名称全大写+路径服务
+# http://localhost:888/EUREKA-CLIENT-PROVIDER/service/login
+# http://localhost:888/EUREKA-CLIENT-CONSUMER-HYSTRIX/app/loginByFeign

@@ -1,0 +1,29 @@
+server:
+  port: 888
+eureka:
+  client:
+    service-url:
+      defaultZone: http://Admin:sunlight@localhost:5000/eureka
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          lowerCaseServiceId: true
+          enabled: true
+      routes:
+        - id: eureka-client-provider-service
+          uri: lb://eureka-client-provider
+          predicates:
+            - Path=/api/v1/**
+          filters:
+            - StripPrefix=2
+            - name: Hystrix
+              args:
+                name: fallbackcmd
+                fallbackUri: forward:/fallback
