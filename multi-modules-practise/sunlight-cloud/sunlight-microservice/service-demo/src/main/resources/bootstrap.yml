@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: demo-service
+  cloud:
+    config:
+      fail-fast: true
+      name: ${spring.application.name}
+      profile: ${spring.profiles.active}
+      discovery:
+        enabled: true
+        service-id: spring-cloud-config
+  profiles:
+    active: dev
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://Admin:sunlight@localhost:5000/eureka

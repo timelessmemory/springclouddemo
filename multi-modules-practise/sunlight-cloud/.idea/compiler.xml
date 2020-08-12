@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="service-demo" />
         <module name="sunlight-common-core" />
         <module name="sunlight-common-log" />
         <module name="sunlight-common-redis" />
@@ -17,6 +18,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="service-demo" target="1.5" />
       <module name="sunlight-api" target="1.5" />
       <module name="sunlight-cloud" target="1.5" />
       <module name="sunlight-common" target="1.5" />
@@ -34,6 +36,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="service-demo" options="" />
       <module name="sunlight-api" options="" />
       <module name="sunlight-cloud" options="" />
       <module name="sunlight-common" options="" />

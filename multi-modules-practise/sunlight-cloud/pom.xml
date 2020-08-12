@@ -14,7 +14,6 @@
         <java.version>1.8</java.version>
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
         <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
-        <spring-boot-admin.version>2.2.2</spring-boot-admin.version>
         <druid.version>1.1.14</druid.version>
         <mybatis.version>2.0.1</mybatis.version>
         <swagger.version>2.0.4</swagger.version>

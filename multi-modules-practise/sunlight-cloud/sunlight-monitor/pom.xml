@@ -14,24 +14,31 @@
     <name>sunlight-monitor</name>
     <description>Demo project for Spring Boot</description>
 
-
     <dependencies>
-        <!--监控服务端 -->
         <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-server</artifactId>
+            <!--spring-boot-admin-starter-server版本与springboot版本存在关系 不对应会报错-->
+            <version>2.2.2</version>
         </dependency>
-        <!--配置中心客户端 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
+
         <!--eureka 客户端 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
+        <!--web 模块 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!--security -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
